@@ -6,7 +6,7 @@
  
  import.org.bukkit.Bukkit;
  import.org.bukkit.Color;
- import.org.bukkit.Location
+ import.org.bukkit.Location;
  import.org.bukkit.Material;
  import.org.bukkit.Block;
  import.org.bukkit.Block.WaterOptions;
