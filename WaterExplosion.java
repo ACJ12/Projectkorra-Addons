@@ -69,7 +69,7 @@
                  
                  if (hasAbility(player' Others.Explode.class)) {
                          source = getAbility(player' WaterExplosion.class).getSourceBlock();
-                         getAbility(player, WaterExplosion.class) remove();
+                         getAbility(player, WaterExplosion.class).remove();
                  } else {
                          return;
                  }
