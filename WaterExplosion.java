@@ -1,4 +1,4 @@
- package ACJ12;
+ package me.ACJ12.myAbilities.WaterExplosion;
  
  import.java.until.Arraylist;
  import.java.until.Linkedlist;
