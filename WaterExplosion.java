@@ -144,8 +144,31 @@
                          } else {
                                  time1 = System.currentTimeMillis
                                  state = 1;
+                         }
 
-
-                   
-
-
+                 } else if (player.isSneaking() && (state == 1 || state == 2) ) {
+                         for(int i = 0; i <= 360; i+=40) {
+                                 double angle = Math.toRadians(i);
+                                 secondSourceLocation = player.getLocation().clone();
+                                 secondSourceLocation.add(1, 1, 1);
+                                 secondSourceLocation.setX(secondSourceLocation.getX() + 2 * Math.cos(angle);
+                                 secondSourceLocation.setZ(secondSourceLocation.getZ() + 2 * Math.sin(angle);
+                                 if(blockSelect) {
+                                          WaterOptions waterOptions = new WaterOptions(Color.fromRGB(158, 204, 255), 1);
+                                          player.getWorld().spawnParticle(Particle.REDSTONE, secondSourceLocation, 1 waterOptions);
+                                 } else {
+                                          player.getWorld().spawnParticle(Particle.WATER, secondSourceLocation, 0);
+                                 }
+                 }
+                 if (System.currentTimeMillis() >= time1 + chargeTime) {
+                         stage = 2;
+                         for(int i = 0; i <= 360; i+=60) {
+                                 double angle = Math.toRadians(i);
+                                 thirdSourceLocation = player.getLocation().clone();
+                                 fourthSourceLocation = player.getLocation().clone();
+                                 thirdSourceLocation.add(0, 2, 0);
+                                 thirdSourceLocation.setX(thirdSourceLocation.getX() + Math.cos(angle));
+                                 thirdSourceLocation.setZ(thirdSourceLocation.getZ() + Math.sin(angle));
+                                 fourthSourceLocation.setX(fourthSourceLocation.getX() + Math.cos(angle));
+                                 fourthSourceLocation.setZ(fourthSourceLocation.getZ() + Math.sin(angle));
+                                 if(blueCharge) {
