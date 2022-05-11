@@ -73,6 +73,66 @@
                  } else {
                          return;
                  }
+                 
+                 setField();
+                 start();
+         {
+                 
+         public void setField() {
+                 affectedPlayers = new LinkedList<Player>();
+                 damagePlayers = new LinkedList<Player>();
+                 
+                 state = -1;
+                 firstSourceLocation = source.getLocation();
+                 
+                 
+                 radius = ConfigManager.getConfig().getDouble("ExtraAbilities.ACJ12.Water.WaterExplosion.Radius");
+                 duration = ConfigManager.getConfig().getLong("ExtraAbilities.ACJ12.Water.WaterExplosion.Duration");
+                 durationStart = 1;
+                 cooldown = ConfigManager.getConfig().getLong("ExtraAbilities.ACJ12.Water.WaterExplosion.Cooldown");
+                 chargeTime = ConfigManager.getConfig().getLong("ExtraAbilities.ACJ12.Water.WaterExplosion.ChargeTime");
+                 damageOn = ConfigManager.getConfig().getBoolean("ExtraAbilities.ACJ12.Water.WaterExplosion.DamageOn");
+                 blockPercentage = ConfigManager.getConfig().getInt("ExtraAbilities.ACJ12.Water.WaterExplosion.BlockPercentage");
+                 explodedWater = ConfigManager.getConfig().getBoolean("ExtraAbilities.ACJ12.Water.WaterExplosion.ExplodedWater");
+                 projectile = ConfigManager.getConfig().getBoolean("ExtraAbilities.ACJ12.Water.WaterExplosion.Projectile");
+                 if (blockPercentage % 100 == 0)
+                           blockPercentage = 2;
+                 else
+                           blockPercentage %= 100;
+         }
+         
+         
+         
+         @Override
+         public void progress() {
+         
+         
+                 if (GeneralMethods.isRegionProtectedFromBuild(this, player.getLocation())) {
+                         remove();
+                         return;
+                 }
+                 
+                  
+                 if (durationStart != -1 && System.currentTimeMillis() > durationStart + duration) {
+                         this.bPlayer.addCooldown(this);
+                         remove();
+                         return;
+                 }
+                 
+                  
+                 if (state >= 0 && state < 2 && !player.isSneaking()) {
+                         remove();
+                         return;
+                 
+                 }
+                 
+                 
+                 if (player.isSneaking() && (state == -1 || state == 0)) {
+                         state = 0;
+                         if (blockSelect) {
+                                   WaterSource waterSource = new WaterOptions(Color.fromRBG(158, 204, 255), 1);
+                                   player.getWorld().spawnParticle(Particle.WATER, firstSourceLocation, 1, waterOptions);
 
+                   
 
 
