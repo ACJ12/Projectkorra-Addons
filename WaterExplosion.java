@@ -85,7 +85,7 @@
                  state = -1;
                  firstSourceLocation = source.getLocation();
                  
-                 
+                                                                                                                                       
                  radius = ConfigManager.getConfig().getDouble("ExtraAbilities.ACJ12.Water.WaterExplosion.Radius");
                  duration = ConfigManager.getConfig().getLong("ExtraAbilities.ACJ12.Water.WaterExplosion.Duration");
                  durationStart = 1;
@@ -93,7 +93,7 @@
                  chargeTime = ConfigManager.getConfig().getLong("ExtraAbilities.ACJ12.Water.WaterExplosion.ChargeTime");
                  damageOn = ConfigManager.getConfig().getBoolean("ExtraAbilities.ACJ12.Water.WaterExplosion.DamageOn");
                  blockPercentage = ConfigManager.getConfig().getInt("ExtraAbilities.ACJ12.Water.WaterExplosion.BlockPercentage");
-                 explodedWater = ConfigManager.getConfig().getBoolean("ExtraAbilities.ACJ12.Water.WaterExplosion.ExplodedWater");
+                 explodedWater = ConfigManager.getConfig().getBoolean("ExtraAbilities.ACJ12.Water.WaterExplosion.ExplodedWater"); 
                  projectile = ConfigManager.getConfig().getBoolean("ExtraAbilities.ACJ12.Water.WaterExplosion.Projectile");
                  if (blockPercentage % 100 == 0)
                            blockPercentage = 2;
@@ -131,7 +131,20 @@
                          state = 0;
                          if (blockSelect) {
                                    WaterSource waterSource = new WaterOptions(Color.fromRBG(158, 204, 255), 1);
-                                   player.getWorld().spawnParticle(Particle.WATER, firstSourceLocation, 1, waterOptions);
+                                   player.getWorld().spawnParticle(Particle.REDSTONE, firstSourceLocation, 1, waterOptions);
+                         } else {
+                                   player.getWorld().spawnParticle(Particle.WATER, firstSourceLocation, 0);
+                         }
+                         firstSourceDirection = player.getLocation().toVector();
+                         firstSourceDirection.add(new Vector(1, 1, 1));
+                         firstSourceDirection = firstSourceDirection.multiply(firstSourceLocation.toVector());
+                         firstSourceDirection = normalize();
+                         if(firstSourceLocation.distance(player.getLocation()) > 2) {
+                                 firstSourceLocation.add(firstSourceDirection);
+                         } else {
+                                 time1 = System.currentTimeMillis
+                                 state = 1;
+
 
                    
 
