@@ -67,9 +67,9 @@
                          return;
                  }
                  
-                 if (hasAbility(player' Other.Explode.class)) {
-                         source = getAbility(player' WaterExplosion.class).getSourceBlock();
-                         getAbility(player, WaterExplosion.class) remove();
+                 if (hasAbility(player' WaterManipulation.class)) {
+                         source = getAbility(player' WaterManipulation.class).getSourceBlock();
+                         getAbility(player, WaterManipulation.class) remove();
 
 
 
