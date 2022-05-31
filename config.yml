@@ -6,6 +6,7 @@ Extra Abilities:
          Description: Manipulate the water and explode it in mid-air
                       to use tap-shift and left-click to launch the water
                       release sneak to explode.
+         Cooldown: 1000
          Blast:
            Damage: 2
            Range: 30
