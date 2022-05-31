@@ -1,0 +1,17 @@
+Extra Abilities:
+    package.ACJ12
+       Water:
+        WaterExplosion:
+         Enabled: true
+         Description: Manipulate the water and explode it in mid-air
+                      to use tap-shift and left-click to launch the water
+                      release sneak to explode.
+         Blast:
+           Damage: 2
+           Range: 30
+           Radius: 6
+         Explosion:
+           Damage: 4.0
+           Height: 3
+           Length: 5
+           Width: 5
