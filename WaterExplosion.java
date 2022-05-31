@@ -131,8 +131,15 @@
                          state = 0;
                          if (blockSelect) {
                                    WaterSource waterSource = new WaterOptions(Color.fromRBG(158, 204, 255), 1);
-                                   player.getWorld().spawnParticle(Particle.WATER, firstSourceLocation, 1, waterOptions);
-
+                                   player.getWorld().spawnParticle(Particle.WATER, firstSourceLocation));
+                 
+                 }
+                 
+                 if (player.Clicking() && (state == -1 || state == 1)) {
+                         state = 1;
+                         if (blockLaunch) {
+                                   WaterSource waterSource = new WaterOptions(Color.fromRBG(150, 200, 250), 0);
+                                   player.Get world().spawnParticle(Particle.WATER, secondSourceLocation));
                    
 
 
